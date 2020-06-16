@@ -2,21 +2,7 @@ import * as React from 'react';
 import { Text, View, Button,StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-const bios = [
-  {name:"Kailin Liu",
-   age:21,
-},
-  {name:"Kexin Zhang",
-   age:21,
-},
-  {name:"Wentao Li",
-  age:20,
-},
-  {name:"Jian Yu",
-  age:20,
-},
-]
+import KexinBio from './components/KexinBio';
 
 function HomeScreen({navigation}) {
   return (
@@ -39,30 +25,12 @@ function About({navigation}) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>TeamBio</Text>
-      {bios.map(bio => (
-        <Button
-          title={"Go to bio for "+bio.name}
-          onPress={() => {
-            /* 1. Navigate to the Details route with params */
-            navigation.navigate('BioDetails', bio);
-          }}
-        />
-      ))}
-    </View>
-  );
-}
-
-function DetailsScreen({ route, navigation }) {
-  /* 2. Get the param */
-  const { name } = route.params;
-  const { age } = route.params;
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>BioDetails</Text>
-      <Text>itemId: {JSON.stringify(name)}</Text>
-      <Text>otherParam: {JSON.stringify(age)}</Text>
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button
+        title = "Kexin Zhang"
+        onPress = {()=>{
+            navigation.navigate('KexinBio');
+        }}
+      />
     </View>
   );
 }
@@ -73,7 +41,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="About" component={About} />
-        <Stack.Screen name="BioDetails" component={DetailsScreen} />
+        <Stack.Screen name="KexinBio" component={KexinBio} />
       </Stack.Navigator>
     </NavigationContainer>
   );
