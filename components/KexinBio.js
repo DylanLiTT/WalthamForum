@@ -3,20 +3,20 @@ import { Text, View, Button,StyleSheet,Image,ImageBackground} from 'react-native
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import kexin from '../assets/kexin.jpg';
-import col from '../assets/col.jpg';
 import kzbackground from '../assets/kzbackground.jpg';
 
 export default function KexinBio({ route, navigation }) {
   /* 2. Get the param */
   return (
-    <ImageBackground source={col} style={styles.backgroundImage}>
+
+    <ImageBackground source={kzbackground} style={styles.backgroundImage}>
     <View style={styles.container}>
       <Text style = {styles.title}>Kexin Zhang Bio</Text>
       <Text style = {styles.subtitle}> Class of 2021</Text>
       <Text style = {styles.subline}> Applied Math, Computer Science, Economics</Text>
       <Image source={kexin} style={styles.logo} />
-      <Text style = {styles.text}> kzsteph@brandeis.edu {'\n'}
-        7815471811 {'\n'}</Text>
+      <Text style = {styles.text}> kzsteph@brandeis.edu </Text>
+      <Text style = {styles.text}>  7815471811 </Text>
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
     </View>
     </ImageBackground>
