@@ -6,7 +6,7 @@ import KexinBio from './components/KexinBio';
 
 function HomeScreen({navigation}) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text>Home Screen</Text>
       <Button
         title="Go to TeamBio"
@@ -23,7 +23,7 @@ const Stack = createStackNavigator();
 
 function About({navigation}) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text>TeamBio</Text>
       <Button
         title = "Kexin Zhang"
@@ -50,7 +50,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
