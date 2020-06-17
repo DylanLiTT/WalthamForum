@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Text, View, Button,StyleSheet} from 'react-native';
+import { Text, View, Button,StyleSheet,Image,ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import About from './components/About';
 import Housing from './components/Housing';
 import Covid19 from './components/Covid19';
 import Restaurant from './components/Restaurant';
-
+import background from './assets/waltham.jpg';
 function HomeScreen({navigation}) {
   return (
+    <ImageBackground source={background} style={styles.background}>
     <View style={styles.container}>
       <Text>Home Screen</Text>
       <Button
@@ -36,6 +37,7 @@ function HomeScreen({navigation}) {
         }}
       />
     </View>
+    </ImageBackground>
   );
 }
 
@@ -59,6 +61,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  backgroundImage: {
+    flex:5,
+    height:'100%',
+    width:'100%',
+    resizeMode:'cover',
   },
 });

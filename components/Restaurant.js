@@ -7,7 +7,19 @@ import background from '../assets/kzbackground.jpg';
 
 export default function Restaurant({ route, navigation }) {
   return(
-    <ImageBackground source={background} >
+    <ImageBackground source={background} style={styles.backgroundImage}>
     </ImageBackground>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  backgroundImage: {
+    flex:5,
+    height:'100%',
+    width:'100%',
+    resizeMode:'cover',
+  },
+});
