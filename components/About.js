@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Text, View, Button,StyleSheet,Image,ImageBackground } from 'react-native';
-import { Card, CardTitle, CardContent, CardAction, CardImage } from 'react-native-material-cards';
+import { Text, View, Button,StyleSheet,Image,ImageBackground,Listing } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import background from '../assets/kzbackground.jpg';
@@ -15,7 +14,7 @@ export default function About({ route, navigation }) {
       <View style={styles.card}>
       <View style = {{alignItems: 'center'}}>
         <Image
-          source={kexin}
+          source={bio.img.src}
           style={{ height: 350, width: 250}} />
         <Text style = {styles.title}>{bio.name}</Text>
         <Text style = {styles.text}>{bio.email}</Text>
