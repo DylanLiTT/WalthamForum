@@ -3,7 +3,6 @@ import { Text, View, Button,StyleSheet,Image,ImageBackground,Listing } from 'rea
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import background from '../assets/kzbackground.jpg';
-import kexin from '../assets/kexin.jpg';
 import bios from '../assets/bios'
 
 export default function About({ route, navigation }) {
