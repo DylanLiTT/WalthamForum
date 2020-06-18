@@ -1,13 +1,17 @@
 import * as React from 'react';
-import { Text, View, Button,StyleSheet,Image,ImageBackground,Listing } from 'react-native';
+import { Text, View, Button,StyleSheet,Image,ImageBackground} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import background from '../assets/apartment.jpg';
+import background from '../assets/kzbackground.jpg';
+import HouseRentForm from "../container/HouseRentForm";
 
 
 export default function Housing({ route, navigation }) {
   return(
     <ImageBackground source={background} style={styles.backgroundImage}>
+    <View style = {styles.container}>
+      <HouseRentForm data={[{}]} style = {styles.container}/>
+    </View>
     </ImageBackground>
   );
 }
