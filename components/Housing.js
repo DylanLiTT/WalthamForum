@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Text, View, Button,StyleSheet,Image,ImageBackground} from 'react-native';
+import { Text, View, Button,StyleSheet,Image,ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import background from '../assets/kzbackground.jpg';
+import background from '../assets/sky.jpg';
 import HouseRentForm from "../container/HouseRentForm";
 
 

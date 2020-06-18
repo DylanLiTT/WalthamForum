@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, Button,StyleSheet,Image,ImageBackground} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import background from '../assets/waltham.jpg';
+import background from '../assets/covid.jpg';
 
 
 export default function Covid19({ route, navigation }) {

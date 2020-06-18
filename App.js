@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View,StyleSheet,Image,ImageBackground} from 'react-native';
+import { Text,View,StyleSheet,Image,ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Button } from 'react-native-elements';
@@ -73,14 +73,16 @@ function HomeScreen({navigation}) {
       />
     </View>
     <View style = {styles.text}>
-    <Text>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
-       concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
-       to get information about the number of peopled infected nearby.</Text>
-    <Text>We build this forum so that people in Waltham can get informed about the operating status of restaurant, shops,
-      houses for rent, and updates on COVID-19.</Text>
-    <Text>Since this is a forum, there are places where people can post info they know and share with each other.</Text>
+      <Text>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
+         concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
+         to get information about the number of peopled infected nearby.</Text>
+      <Text>We build this forum so that people in Waltham can get informed about the operating status of restaurant, shops,
+        houses for rent, and updates on COVID-19.</Text>
+      <Text>Since this is a forum, there are places where people can post info they know and share with each other.</Text>
+      <Image
+        source={require('./assets/waltham.jpg')}
+        style={{ height: 250, width: 400, marginTop: 15, marginBottom: -15}} />
     </View>
-    <Image source = {background} />
     </ImageBackground>
   );
 }

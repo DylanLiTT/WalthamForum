@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { Text, View, Button,StyleSheet,Image,ImageBackground} from 'react-native';
+import useStickyState from '../useStickyState';
 
 const  HouseRentForm = ({data}) => {
   // here is where we keep track of the todo list
 
-  const [apts,updateApts] = useState(data,"HouseRentForm")
+  const [apts,updateApts] = useStickyState(data,"HouseRentForm")
 
   // here is where we keep track of the values in the form
   const [name,setName] = useState("")
