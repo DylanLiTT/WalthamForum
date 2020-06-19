@@ -8,13 +8,24 @@ import About from './components/About';
 import Housing from './components/Housing';
 import Covid19 from './components/Covid19';
 import Restaurant from './components/Restaurant';
-import background from './assets/grey.jpg';
+import background from './assets/lightBlue.jpg';
 
 
 function HomeScreen({navigation}) {
   return (
-    <ImageBackground source={background} style={styles.background}>
-    <View style={styles.container}>
+    <ImageBackground source={background} style={styles.backgroundImage}>
+    <View>
+      <Text style = {styles.text}>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
+         concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
+         to get information about the number of peopled infected nearby.</Text>
+      <Text style = {styles.text}>We build this forum so that people in Waltham can get informed about the operating status of restaurant, shops,
+        houses for rent, and updates on COVID-19.</Text>
+      <Text style = {styles.text}>Since this is a forum, there are places where people can post info they know and share with each other.</Text>
+      <Image
+        source={require('./assets/waltham.jpg')}
+        style={{ height: 316, width: 375, marginTop: 15, marginBottom: 2}} />
+    </View>
+    <View style={styles.button}>
       <Button
         icon={
           <Icon
@@ -65,23 +76,12 @@ function HomeScreen({navigation}) {
             color="white"
           />
         }
-        buttonStyle={{backgroundColor: '#b8860b',width:68}}
+        buttonStyle={{backgroundColor: '#b8860b',width:70}}
         title="About"
         onPress={() => {
           navigation.navigate('About');
         }}
       />
-    </View>
-    <View style = {styles.text}>
-      <Text>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
-         concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
-         to get information about the number of peopled infected nearby.</Text>
-      <Text>We build this forum so that people in Waltham can get informed about the operating status of restaurant, shops,
-        houses for rent, and updates on COVID-19.</Text>
-      <Text>Since this is a forum, there are places where people can post info they know and share with each other.</Text>
-      <Image
-        source={require('./assets/waltham.jpg')}
-        style={{ height: 250, width: 400, marginTop: 15, marginBottom: -15}} />
     </View>
     </ImageBackground>
   );
@@ -119,26 +119,21 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
+  button: {
     flexDirection: 'row',
-    justifyContent:'space-evenly',
   },
   text: {
-    color:'#000000',
+    color:'black',
     fontSize:15,
-    fontWeight:'bold',
+    fontFamily:'Chalkduster, fantasy',
+    fontWeight:'normal',
     marginTop: 10,
-    marginRight:20,
+    marginRight:10,
     marginLeft:20,
-    marginBottom:15,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom:20,
     textAlign: 'center'
   },
   backgroundImage: {
-    felx:2,
     height:'100%',
     width:'100%',
     resizeMode:'cover',
