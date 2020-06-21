@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text,View,StyleSheet,Image,ImageBackground } from 'react-native';
+import { Container, Header, Title, Left, Right, Body, Content} from "native-base";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Button } from 'react-native-elements';
@@ -8,6 +9,7 @@ import About from './components/About';
 import Housing from './components/Housing';
 import Covid19 from './components/Covid19';
 import Restaurant from './components/Restaurant';
+import Sign from './components/Signin';
 import background from './assets/lightBlue.jpg';
 
 
@@ -15,6 +17,24 @@ function HomeScreen({navigation}) {
   return (
     <ImageBackground source={background} style={styles.backgroundImage}>
     <View>
+      <Header>
+          <Right>
+          <Button
+            icon={
+              <Icon
+                name="bank"
+                size={15}
+                color="white"
+              />
+            }
+            buttonStyle={{backgroundColor: '#008b8b',width:120}}
+            title="Sign in/up"
+            onPress={() => {
+              navigation.navigate('Sign');
+            }}
+          />
+          </Right>
+        </Header>
       <Text style = {styles.text}>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
          concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
          to get information about the number of peopled infected nearby.</Text>
@@ -93,26 +113,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen}
-        options = {{
-          headerRight: () => (
-           <Button
-             icon={
-               <Icon
-                 name="list"
-                 size={20}
-                 color="white"
-               />
-             }
-             buttonStyle={{backgroundColor: '#b8860b'}}
-             onPress={() => alert('This is a button!')}
-           />
-         ),
-        }}/>
+        <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="Houses For Rent" component={Housing} />
         <Stack.Screen name="Restaurants Open Now" component={Restaurant} />
         <Stack.Screen name="Covid-19 Update" component={Covid19} />
         <Stack.Screen name="About" component={About} />
+        <Stack.Screen name="Sign" component={Sign}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
