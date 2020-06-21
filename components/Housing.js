@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import useStickyState from '../useStickyState.js';
-import { Text, View, Button, StyleSheet, Image, ImageBackground, FlatList, TouchableOpacity, Modal } from 'react-native';
+import { Text, View,StyleSheet, Image, ImageBackground, FlatList, TouchableOpacity} from 'react-native';
+import Modal from 'modal-react-native-web';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Card from '../container/Card.js';
+import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import HouseRentForm from "../container/HouseRentForm";
 import ApartmentDetails from './ApartmentDetails.js';
@@ -29,22 +31,35 @@ export default function Housing({ route, navigation }) {
   return(
     <ImageBackground source={background} style={styles.backgroundImage}>
     <View style = {styles.container}>
-
       <Modal visible={modalOpen} animationType='slide'>
         <View style={styles.modelContent}>
           <Button
-            buttonStyle={{backgroundColor: '#008b8b',width:85}}
-            title="close"
-            onPress={() => {setModalOpen(true)}}
+            icon={
+              <Icon style = {{marginRight:4}}
+                name="close"
+                size={24}
+                color="white"
+              />
+            }
+            buttonStyle={{backgroundColor: '#6b8e23',width:85}}
+            title="Close"
+            onPress={() => {setModalOpen(false)}}
           />
-          <HouseRentForm addApt={addApt} />
+          <HouseRentForm  addApt={addApt} />
         </View>
       </Modal>
 
-      <Button
-        buttonStyle={{backgroundColor: '#008b8b',width:85}}
-        title="New House For Rent"
-        onPress={() => {setModalOpen(false)}}
+      <Button style = {{marginBottom:15}}
+        icon={
+          <Icon
+            name="plus"
+            size={24}
+            color="white"
+          />
+        }
+        buttonStyle={{backgroundColor: '#6b8e23',width:200}}
+        title="New House Available to Lease"
+        onPress={() => {setModalOpen(true)}}
       />
 
       <FlatList
@@ -65,25 +80,21 @@ export default function Housing({ route, navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop:15,
     flex: 1,
     alignItems: 'center',
   },
-
   backgroundImage: {
     flex: 5,
     height:'100%',
     width:'100%',
     resizeMode:'cover',
   },
-
-  title: {
-
-  },
-
   modalContent: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent:'center',
   },
-
   modalToggle: {
     marginBottom: 10,
     borderWidth: 1,
@@ -92,5 +103,4 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignSelf: 'center',
   },
-
 });

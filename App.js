@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text,View,StyleSheet,Image,ImageBackground } from 'react-native';
+import { Text,View,StyleSheet,Image,ImageBackground} from 'react-native';
 import { Container, Header, Title, Left, Right, Body, Content} from "native-base";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -14,6 +14,7 @@ import background from './assets/lightBlue.jpg';
 
 
 function HomeScreen({navigation}) {
+
   return (
     <ImageBackground source={background} style={styles.backgroundImage}>
     <View>
@@ -35,6 +36,7 @@ function HomeScreen({navigation}) {
           />
           </Right>
         </Header>
+
       <Text style = {styles.text}>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
          concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
          to get information about the number of peopled infected nearby.</Text>

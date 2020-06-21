@@ -101,5 +101,6 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     borderRadius: 6,
+    alignItems: 'center',
   },
 });

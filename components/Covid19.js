@@ -8,6 +8,7 @@ import background from '../assets/covid.jpg';
 export default function Covid19({ route, navigation }) {
   return(
     <ImageBackground source={background} style={styles.backgroundImage}>
+
     </ImageBackground>
   );
 }
