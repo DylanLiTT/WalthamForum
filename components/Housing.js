@@ -9,7 +9,7 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import HouseRentForm from "../container/HouseRentForm";
 import ApartmentDetails from './ApartmentDetails.js';
-import background from '../assets/sky.jpg';
+import background from '../assets/street.jpg';
 
 export default function Housing({ route, navigation }) {
 
@@ -65,7 +65,7 @@ export default function Housing({ route, navigation }) {
       <FlatList
         data={apts}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigation.navigate('ApartmentDetails', item)}>
+          <TouchableOpacity onPress={() => navigation.navigate('ApartmentDetails', {item})}>
             <Card>
               <Text style={styles.title}>{ item.address }</Text>
             </Card>

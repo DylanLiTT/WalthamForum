@@ -9,8 +9,9 @@ import About from './components/About';
 import Housing from './components/Housing';
 import Covid19 from './components/Covid19';
 import Restaurant from './components/Restaurant';
+import ApartmentDetails from './components/ApartmentDetails';
 import Sign from './components/Signin';
-import background from './assets/lightBlue.jpg';
+import background from './assets/blue.jpg';
 
 
 function HomeScreen({navigation}) {
@@ -121,6 +122,7 @@ export default function App() {
         <Stack.Screen name="Covid-19 Update" component={Covid19} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Sign" component={Sign}/>
+        <Stack.Screen name="ApartmentDetails" component={ApartmentDetails}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
