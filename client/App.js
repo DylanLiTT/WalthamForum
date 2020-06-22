@@ -17,24 +17,20 @@ function HomeScreen({navigation}) {
   return (
     <ImageBackground source={background} style={styles.backgroundImage}>
     <View>
-      <Header>
-          <Right>
-          <Button
-            icon={
-              <Icon
-                name="bank"
-                size={15}
-                color="white"
-              />
-            }
-            buttonStyle={{backgroundColor: '#008b8b',width:120}}
-            title="Sign in/up"
-            onPress={() => {
-              navigation.navigate('Sign');
-            }}
+      <Button style={styles.topButton}
+        icon={
+          <Icon
+            name="bank"
+            size={15}
+            color="white"
           />
-          </Right>
-        </Header>
+        }
+        buttonStyle={{backgroundColor: '#008b8b',width:120}}
+        title="Sign in/up"
+        onPress={() => {
+          navigation.navigate('Sign');
+        }}
+      />
 
       <Text style = {styles.text}>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
          concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
@@ -55,7 +51,7 @@ function HomeScreen({navigation}) {
             color="white"
           />
         }
-        buttonStyle={{backgroundColor: '#008b8b',width:85}}
+        buttonStyle={{backgroundColor: '#6A5ACD',width:85}}
         title="Houses"
         onPress={() => {
           navigation.navigate('Houses For Rent');
@@ -69,7 +65,7 @@ function HomeScreen({navigation}) {
             color="white"
           />
         }
-        buttonStyle={{backgroundColor: '#6b8e23',width:114}}
+        buttonStyle={{backgroundColor: '#0000FF',width:114}}
         title="Restaurants"
         onPress={() => {
           navigation.navigate('Restaurants Open Now');
@@ -83,7 +79,7 @@ function HomeScreen({navigation}) {
             color="white"
           />
         }
-        buttonStyle={{backgroundColor: '#daa520',width:105}}
+        buttonStyle={{backgroundColor: '#0000CD',width:105}}
         title="Covid-19"
         onPress={() => {
           navigation.navigate('Covid-19 Update');
@@ -97,7 +93,7 @@ function HomeScreen({navigation}) {
             color="white"
           />
         }
-        buttonStyle={{backgroundColor: '#b8860b',width:70}}
+        buttonStyle={{backgroundColor: '#00008B',width:70}}
         title="About"
         onPress={() => {
           navigation.navigate('About');
@@ -127,6 +123,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  topButton: {
+    flexDirection: 'row-reverse',
+  },
   button: {
     flexDirection: 'row',
   },

@@ -24,9 +24,9 @@ export default function Housing({ route, navigation }) {
   const { getItem, setItem } = useAsyncStorage('counter');
 
   const readItemFromStorage = async () => {
-    const item = await getItem()
-    const newValue = JSON.parse(item)
-    setApts(newValue)
+    const item = await getItem();
+    const newValue = JSON.parse(item);
+    setApts(newValue);
   };
 
   const writeItemToStorage = async newValue => {
@@ -45,7 +45,7 @@ export default function Housing({ route, navigation }) {
   }
 
   const deleteItem = (key) => {
-    const newApts = apts.filter(x => x.key!=key)
+    const newApts = apts.filter(x => x.key!=key);
     writeItemToStorage(newApts);
   }
 
@@ -88,14 +88,18 @@ export default function Housing({ route, navigation }) {
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => navigation.navigate('ApartmentDetails', {item})}>
             <Card>
-              <Text style={styles.title}>{ item.address }</Text>
-              <Button
-                buttonStyle={{backgroundColor: '#008b8b',width:50}}
-                title="delete"
-                onPress={() => {
-                  deleteItem(item.key)
-                }}
+              <Button style = {{height:20, width:20, marginBottom:10}}
+                icon={
+                  <Icon
+                    name="close"
+                    size={20}
+                    color="#A52A2A"
+                  />
+                }
+                buttonStyle={{backgroundColor: 'white', height:20, width:20}}
+                onPress={() => {deleteItem(item.key)}}
               />
+              <Text style={styles.title}>{ item.address }</Text>
             </Card>
           </TouchableOpacity>
         )}
@@ -131,4 +135,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignSelf: 'center',
   },
+  title: {
+    fontSize: 20,
+    fontWeight: 'regular',
+  }
 });
