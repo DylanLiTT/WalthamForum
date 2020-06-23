@@ -23,13 +23,14 @@ export default function Housing({ route, navigation }) {
   const [apts, setApts] = useState([fakeItem])
 
 
-  const { getItem, setItem } = useAsyncStorage('counter');
+  const { getItem, setItem } = useAsyncStorage('apts0');
 
   const readItemFromStorage = async () => {
     try {
       let item = await getItem();
       //item = item || JSON.stringify(fakeItem)
-      const newValue = JSON.parse(item);
+      let newValue = JSON.parse(item);
+      newValue = newValue || [fakeItem]
       setApts(newValue);
     }
     catch(e) {
@@ -62,8 +63,8 @@ export default function Housing({ route, navigation }) {
 
   return(
     <ImageBackground source={background} style={styles.backgroundImage}>
-    <Text> apts.length = {apts.length}
-          apts[0] = {JSON.stringify(apts[0])}
+    <Text> apts.length = {apts && apts.length}
+
           </Text>
     <View style = {styles.container}>
       <Modal visible={modalOpen} animationType='slide'>
