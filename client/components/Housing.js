@@ -16,27 +16,24 @@ export default function Housing({ route, navigation }) {
 
   const[modalOpen, setModalOpen] = useState(false);
 
-  const fakeItem =
+  const sampleItem =
     {name:'sample', phone:'0000000000', email:'sample@gmail.com', address:'000 Sample Street',
     bedroom:'0', bathroom:'0', price:'0000', startDate:'1/1', endDate:'1/2', comment:'My house is good!'}
 
-  const [apts, setApts] = useState([fakeItem])
-
+  const [apts, setApts] = useState([sampleItem])
 
   const { getItem, setItem } = useAsyncStorage('apts0');
 
   const readItemFromStorage = async () => {
     try {
       let item = await getItem();
-      //item = item || JSON.stringify(fakeItem)
       let newValue = JSON.parse(item);
-      newValue = newValue || [fakeItem]
+      newValue = newValue || [sampleItem]
       setApts(newValue);
     }
     catch(e) {
-      setApts([fakeItem])
+      setApts([sampleItem])
     }
-
   };
 
   const writeItemToStorage = async newValue => {
@@ -45,8 +42,6 @@ export default function Housing({ route, navigation }) {
   };
 
   useEffect(() => {
-    //writeItemToStorage([fakeItem])
-    //setApts([fakeItem])
     readItemFromStorage();
   }, []);
 
