@@ -16,17 +16,26 @@ export default function Housing({ route, navigation }) {
 
   const[modalOpen, setModalOpen] = useState(false);
 
-  const [apts, setApts] = useState([
+  const fakeItem =
     {name:'sample', phone:'0000000000', email:'sample@gmail.com', address:'000 Sample Street',
-    bedroom:'0', bathroom:'0', price:'0000', startDate:'1/1', endDate:'1/2', comment:'My house is good!'},
-  ]);
+    bedroom:'0', bathroom:'0', price:'0000', startDate:'1/1', endDate:'1/2', comment:'My house is good!'}
+
+  const [apts, setApts] = useState([fakeItem])
+
 
   const { getItem, setItem } = useAsyncStorage('counter');
 
   const readItemFromStorage = async () => {
-    const item = await getItem();
-    const newValue = JSON.parse(item);
-    setApts(newValue);
+    try {
+      let item = await getItem();
+      //item = item || JSON.stringify(fakeItem)
+      const newValue = JSON.parse(item);
+      setApts(newValue);
+    }
+    catch(e) {
+      setApts([fakeItem])
+    }
+
   };
 
   const writeItemToStorage = async newValue => {
@@ -35,6 +44,8 @@ export default function Housing({ route, navigation }) {
   };
 
   useEffect(() => {
+    //writeItemToStorage([fakeItem])
+    //setApts([fakeItem])
     readItemFromStorage();
   }, []);
 
@@ -51,6 +62,9 @@ export default function Housing({ route, navigation }) {
 
   return(
     <ImageBackground source={background} style={styles.backgroundImage}>
+    <Text> apts.length = {apts.length}
+          apts[0] = {JSON.stringify(apts[0])}
+          </Text>
     <View style = {styles.container}>
       <Modal visible={modalOpen} animationType='slide'>
         <View style={styles.modelContent}>
@@ -85,6 +99,7 @@ export default function Housing({ route, navigation }) {
 
       <FlatList
         data={apts}
+        keyExtractor={(item, index) => 'key'+index}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => navigation.navigate('ApartmentDetails', {item})}>
             <Card>
@@ -120,7 +135,7 @@ const styles = StyleSheet.create({
     flex: 5,
     height:'100%',
     width:'100%',
-    resizeMode:'cover',
+    //resizeMode:'cover',
   },
   modalContent: {
     flex: 1,
