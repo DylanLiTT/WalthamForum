@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import useStickyState from '../useStickyState.js';
 import { Text, View,StyleSheet, Image, ImageBackground, FlatList, TouchableOpacity} from 'react-native';
 import Modal from 'modal-react-native-web';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,7 +9,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import HouseRentForm from "../container/HouseRentForm";
 import ApartmentDetails from './ApartmentDetails.js';
 import background from '../assets/street.jpg';
-import { useAsyncStorage } from '@react-native-community/async-storage';
+
+
+const deviceId = "team2";
 
 export default function Housing({ route, navigation }) {
 
@@ -22,24 +23,42 @@ export default function Housing({ route, navigation }) {
 
   const [apts, setApts] = useState([sampleItem])
 
-  const { getItem, setItem } = useAsyncStorage('apts0');
-
   const readItemFromStorage = async () => {
-    try {
-      let item = await getItem();
-      let newValue = JSON.parse(item);
-      newValue = newValue || [sampleItem]
-      setApts(newValue);
+    try{
+      let item = await fetch("http://localhost:19006/get",{
+        method:"POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          key: 'counterDemo',
+          deviceId: deviceId,
+        })
+      })
+      setApts(JSON.parse(item))
+      setModalOpen(true);
     }
-    catch(e) {
+    catch(e){
       setApts([sampleItem])
     }
   };
 
-  const writeItemToStorage = async newValue => {
-    await setItem(JSON.stringify(newValue));
-    setApts(newValue);
-  };
+    const writeItemToStorage = async newValue => {
+      await fetch("http://localhost:19006/store",{
+        method:"POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          key: 'counterDemo',
+          deviceId: deviceId,
+          value: newValue
+        })
+      })
+      setApts(newValue);
+    };
 
   useEffect(() => {
     readItemFromStorage();
@@ -58,9 +77,7 @@ export default function Housing({ route, navigation }) {
 
   return(
     <ImageBackground source={background} style={styles.backgroundImage}>
-    <Text> apts.length = {apts && apts.length}
-
-          </Text>
+    <Text> apts.length = {apts && apts.length}</Text>
     <View style = {styles.container}>
       <Modal visible={modalOpen} animationType='slide'>
         <View style={styles.modelContent}>
