@@ -12,6 +12,7 @@ import Restaurant from './components/Restaurant';
 import ApartmentDetails from './components/ApartmentDetails';
 import Sign from './components/Signin';
 import background from './assets/blue.jpg';
+import Review from './components/Review';
 
 function HomeScreen({navigation}) {
   return (
@@ -99,6 +100,20 @@ function HomeScreen({navigation}) {
           navigation.navigate('About');
         }}
       />
+      <Button
+        icon={
+          <Icon
+            name="info"
+            size={15}
+            color="white"
+          />
+        }
+        buttonStyle={{backgroundColor: '#00008B',width:70}}
+        title="Review"
+        onPress={() => {
+          navigation.navigate('Review');
+        }}
+      />
     </View>
     </ImageBackground>
   );
@@ -116,6 +131,7 @@ export default function App() {
         <Stack.Screen name="Covid-19 Update" component={Covid19} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Sign" component={Sign}/>
+        <Stack.Screen name="Review" component={Review}/>
         <Stack.Screen name="ApartmentDetails" component={ApartmentDetails}/>
       </Stack.Navigator>
     </NavigationContainer>
