@@ -25,7 +25,7 @@ export default function Housing({ route, navigation }) {
 
   const readItemFromStorage = async () => {
     try{
-      let item = await fetch("http://localhost:19006/get",{
+      let item = await fetch("http://localhost:5500/showHousesMobile",{
         method:"POST",
         headers: {
           Accept: 'application/json',
@@ -36,7 +36,9 @@ export default function Housing({ route, navigation }) {
           deviceId: deviceId,
         })
       })
-      setApts(JSON.parse(item))
+      const itemParsed = await item.json()
+      console.log(JSON.stringify(itemParsed,null,2))
+      setApts(itemParsed)
       setModalOpen(true);
     }
     catch(e){
@@ -45,7 +47,7 @@ export default function Housing({ route, navigation }) {
   };
 
     const writeItemToStorage = async newValue => {
-      await fetch("http://localhost:19006/store",{
+      await fetch("http://localhost:5500/houseForRentMobile",{
         method:"POST",
         headers: {
           Accept: 'application/json',
@@ -57,7 +59,7 @@ export default function Housing({ route, navigation }) {
           value: newValue
         })
       })
-      setApts(newValue);
+    readItemFromStorage()
     };
 
   useEffect(() => {
@@ -66,7 +68,7 @@ export default function Housing({ route, navigation }) {
 
   const addApt = (apt) => {
     apt.key = Math.random().toString();
-    writeItemToStorage([apt,...apts]);
+    writeItemToStorage(apt);
     setModalOpen(false);
   }
 
