@@ -26,5 +26,7 @@
    cardContent:{
      marginHorizontal: 18,
      marginVertical: 12,
+     alignItems: "center"
+
    }
  })
