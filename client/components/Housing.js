@@ -79,7 +79,6 @@ export default function Housing({ route, navigation }) {
 
   return(
     <ImageBackground source={background} style={styles.backgroundImage}>
-    <Text> apts.length = {apts && apts.length}</Text>
     <View style = {styles.container}>
       <Modal visible={modalOpen} animationType='slide'>
         <View style={styles.modelContent}>

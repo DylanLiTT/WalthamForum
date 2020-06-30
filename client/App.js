@@ -10,7 +10,6 @@ import Housing from './components/Housing';
 import Covid19 from './components/Covid19';
 import Restaurant from './components/Restaurant';
 import ApartmentDetails from './components/ApartmentDetails';
-import Sign from './components/Signin';
 import background from './assets/blue.jpg';
 import Review from './components/Review';
 
@@ -18,21 +17,21 @@ function HomeScreen({navigation}) {
   return (
     <ImageBackground source={background} style={styles.backgroundImage}>
     <View>
-      <Button style={styles.topButton}
+      <Button
+        style= {{flexDirection: "row-reverse"}}
         icon={
           <Icon
-            name="bank"
+            name="info"
             size={15}
             color="white"
           />
         }
-        buttonStyle={{backgroundColor: '#008b8b',width:120}}
-        title="Sign in/up"
+        buttonStyle={{backgroundColor: '#008b8b',width:70}}
+        title="About"
         onPress={() => {
-          navigation.navigate('Sign');
+          navigation.navigate('About');
         }}
       />
-
       <Text style = {styles.text}>Welcome to the Waltham Community Forum. With the COVID-19 prevailing, there are a lot of arising
          concerns over the accessibility of food, daily supplies, and housing. Also, it will be important
          to get information about the number of peopled infected nearby.</Text>
@@ -86,6 +85,7 @@ function HomeScreen({navigation}) {
           navigation.navigate('Covid-19 Update');
         }}
       />
+
       <Button
         icon={
           <Icon
@@ -94,21 +94,7 @@ function HomeScreen({navigation}) {
             color="white"
           />
         }
-        buttonStyle={{backgroundColor: '#00008B',width:70}}
-        title="About"
-        onPress={() => {
-          navigation.navigate('About');
-        }}
-      />
-      <Button
-        icon={
-          <Icon
-            name="info"
-            size={15}
-            color="white"
-          />
-        }
-        buttonStyle={{backgroundColor: '#00008B',width:70}}
+        buttonStyle={{backgroundColor: '#00008B',width:73}}
         title="Review"
         onPress={() => {
           navigation.navigate('Review');
@@ -125,12 +111,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="Waltham Forum" component={HomeScreen}/>
         <Stack.Screen name="Houses For Rent" component={Housing} />
         <Stack.Screen name="Restaurants Open Now" component={Restaurant} />
         <Stack.Screen name="Covid-19 Update" component={Covid19} />
         <Stack.Screen name="About" component={About} />
-        <Stack.Screen name="Sign" component={Sign}/>
         <Stack.Screen name="Review" component={Review}/>
         <Stack.Screen name="ApartmentDetails" component={ApartmentDetails}/>
       </Stack.Navigator>
