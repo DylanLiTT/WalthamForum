@@ -10,9 +10,10 @@ const {item} = route.params;
     <View style={styles.container}>
       <Card>
         <Text>Renter Name: {item.name}</Text>
-        <Text>Contact Info: {item.phone} / {item.email}</Text>
+        <Text>Contact Info: {item.phone}</Text>
+        <Text>{item.email}</Text>
         <Text>Housing Address: {item.address}</Text>
-        <Text>Housing Layout: {item.bedroom}b{item.bathroom}b</Text>
+        <Text>Housing Layout: {item.bedroom}b{item.bathroom}b</Text>        
         <Text>Expected Price: ${item.price} per month</Text>
         <Text>Lease Term: {item.startDate}-{item.endDate}</Text>
         <Text>Additional Description: {item.comment}</Text>
