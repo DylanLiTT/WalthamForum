@@ -39,7 +39,7 @@ export default function Housing({ route, navigation }) {
       const itemParsed = await item.json()
       console.log(JSON.stringify(itemParsed,null,2))
       setApts(itemParsed)
-      setModalOpen(true);
+      setModalOpen(false);
     }
     catch(e){
       setApts([sampleItem])
@@ -62,8 +62,8 @@ export default function Housing({ route, navigation }) {
   readItemFromStorage()
   };
 
-  const deleteItem = async key => {
-    await fetch("http://localhost:5500/deleteHouseForRentMobile",{
+  const deleteItem = async key=> {
+    await fetch("http://localhost:5500/deleteMobile",{
       method:"POST",
       headers: {
         Accept: 'application/json',
