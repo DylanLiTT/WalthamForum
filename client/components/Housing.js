@@ -46,35 +46,46 @@ export default function Housing({ route, navigation }) {
     }
   };
 
-    const writeItemToStorage = async newValue => {
-      await fetch("http://localhost:5500/houseForRentMobile",{
-        method:"POST",
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          key: 'counterDemo',
-          deviceId: deviceId,
-          value: newValue
-        })
+  const writeItemToStorage = async newValue => {
+    await fetch("http://localhost:5500/houseForRentMobile",{
+      method:"POST",
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        key: 'counterDemo',
+        deviceId: deviceId,
+        value: newValue
       })
-    readItemFromStorage()
-    };
+    })
+  readItemFromStorage()
+  };
+
+  const deleteItem = async key => {
+    await fetch("http://localhost:5500/deleteHouseForRentMobile",{
+      method:"POST",
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        key: 'counterDemo',
+        deviceId: deviceId,
+        value: key
+      })
+    })
+  readItemFromStorage()
+  };
 
   useEffect(() => {
     readItemFromStorage();
   }, []);
 
   const addApt = (apt) => {
-    apt.key = Math.random().toString();
+    //apt.key = Math.random().toString();
     writeItemToStorage(apt);
     setModalOpen(false);
-  }
-
-  const deleteItem = (key) => {
-    const newApts = apts.filter(x => x.key!=key);
-    writeItemToStorage(newApts);
   }
 
   return(
@@ -126,7 +137,7 @@ export default function Housing({ route, navigation }) {
                   />
                 }
                 buttonStyle={{backgroundColor: 'white', height:20, width:20}}
-                onPress={() => {deleteItem(item.key)}}
+                onPress={() => {deleteItem(item._id)}}
               />
               <Text style={styles.title}>{ item.address }</Text>
             </Card>
