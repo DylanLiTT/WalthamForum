@@ -17,6 +17,7 @@ const {item} = route.params;
         <Text>Lease Term: {item.startDate}-{item.endDate}</Text>
         <Text>Additional Description: {item.comment}</Text>
       </Card>
+      <img src={item.picUrl} style={{height:150,width:300}}/>
     </View>
   )
 }

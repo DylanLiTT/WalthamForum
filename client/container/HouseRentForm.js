@@ -86,6 +86,13 @@ export default function HouseRentForm({ addApt }) {
             />
             <TextInput
               style={styles.input}
+              placeholder='URL for picture'
+              placeholderTextColor = '#dcdcdc'
+              onChangeText={props.handleChange('picURL')}
+              value={props.values.picUrl}
+            />
+            <TextInput
+              style={styles.input}
               placeholder='additional comments'
               placeholderTextColor = '#dcdcdc'
               onChangeText={props.handleChange('comment')}
