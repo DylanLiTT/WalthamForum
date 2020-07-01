@@ -9,7 +9,6 @@ import ReviewForm from './ReviewForm';
 export default function Review({ route, navigation }) {
   return(
       <View>
-        <Text>hello world</Text>
         <ReviewForm />
       </View>
   );
