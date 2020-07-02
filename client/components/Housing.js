@@ -18,7 +18,7 @@ export default function Housing({ route, navigation }) {
 
   const sampleItem =
     {name:'sample', phone:'0000000000', email:'sample@gmail.com', address:'000 Sample Street',
-    bedroom:'0', bathroom:'0', price:'0000', startDate:'1/1', endDate:'1/2', pirUrl:'https://s3.amazonaws.com/zumpermedia/blog/2018/04/Victor-Prosper.png', comment:'My house is good!', }
+    bedroom:'0', bathroom:'0', price:'0000', startDate:'1/1', endDate:'1/2', picUrl:'https://s3.amazonaws.com/zumpermedia/blog/2018/04/Victor-Prosper.png', comment:'My house is good!', }
 
   const [apts, setApts] = useState([sampleItem])
 
