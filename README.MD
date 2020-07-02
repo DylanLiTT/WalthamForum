@@ -8,3 +8,5 @@ And the info will be posted and other users can see it and contact the leaser. A
 For Restaurant, we have selected some famous restaurant in Waltham and upload their information in this page, so users can check whether they are open or not.
 
 For COVID-19, we fetched the data from covidtracking.com and choose some data to present on the page. And the data will be updated every day.
+
+Also users can submit reviews (comments and ratings) for this app the in 'Review' section. 
