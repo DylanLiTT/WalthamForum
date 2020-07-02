@@ -16,9 +16,9 @@ const {item} = route.params;
         <Text>Housing Layout: {item.bedroom}b{item.bathroom}b</Text>
         <Text>Expected Price: ${item.price} per month</Text>
         <Text>Lease Term: {item.startDate}-{item.endDate}</Text>
-        <Text>Additional Description: {item.comment}</Text>
+        <Text style={{marginBottom:10}}>Additional Description: {item.comment}</Text>
+        <img src={item.picUrl} style={{height:150,width:300}}/>
       </Card>
-      <img src={item.picUrl} style={{height:150,width:300}}/>
     </View>
   )
 }

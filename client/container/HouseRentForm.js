@@ -9,7 +9,7 @@ export default function HouseRentForm({ addApt }) {
     <View style={styles.container}>
       <Formik
         initialValues={{name:'', phone:'', email:'', address:'', bedroom:'', bathroom:'',
-                        price:'', startDate:'', endDate:'', comment:''}}
+                        price:'', startDate:'', endDate:'', pirUrl:'', comment:''}}
         onSubmit={(values, actions)=>{
           actions.resetForm();
           addApt(values);
@@ -88,8 +88,8 @@ export default function HouseRentForm({ addApt }) {
               style={styles.input}
               placeholder='URL for picture'
               placeholderTextColor = '#dcdcdc'
-              onChangeText={props.handleChange('picURL')}
-              value={props.values.picUrl}
+              onChangeText={props.handleChange('pirUrl')}
+              value={props.values.pirUrl}
             />
             <TextInput
               style={styles.input}
